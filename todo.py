@@ -2,7 +2,9 @@
 #a list to store our todo. each task is a dictionary.
 tasks = [
     {"task" : "read a book", "completed":False},
-    {"task" : "do some code", "completed":True}
+    {"task" : "do some code", "completed":True},
+    {"task" : "lets check how git tracks me", "completed":False},
+    {"task" : "another check", "completed":False}
         ]
 def display_tasks():
     print("---your todo list---")
