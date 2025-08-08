@@ -1,21 +1,25 @@
-#print("Hello, To-Do App!")
-#a list to store our todo. each task is a dictionary.
-tasks = [
-    {"task" : "read a book", "completed":False},
-    {"task" : "do some code", "completed":True},
-    {"task" : "lets check how git tracks me", "completed":False},
-    {"task" : "another check", "completed":False}
-        ]
-def display_tasks():
-    print("---your todo list---")
-    if not tasks:
-        print("you have no tasks")
-    else:
-        for index, task in enumerate(tasks, start=1):
-            status_icon = "|/" if task["completed"] else "||"
-            print(f"{index},{status_icon}){task['task']}")
-    print(".................................................")
+def add_todo(item):
+    todos.append({"text": item, "completed": False})
+    print(f"Added '{item}' to your to-do list.")
 
-if __name__ == "__main__":
-    display_tasks()
-            
+def complete_todo(index):
+    if 0 <= index < len(todos):
+        todos[index]["completed"] = True
+        print(f"Completed: '{todos[index]['text']}'")
+    else:
+        print("Invalid index.")
+
+def print_todos():
+    print("--- TODOs ---")
+    for index, todo in enumerate(todos):
+        status = "✓" if todo["completed"] else " "
+        print(f"{index + 1}. [{status}] {todo['text']}")
+    print("---------------")
+
+
+print("Welcome to your to-do list!")
+
+add_todo("Learn Git")
+add_todo("Buy groceries")
+complete_todo(0) # Mark 'Learn Git' as complete
+print_todos()
